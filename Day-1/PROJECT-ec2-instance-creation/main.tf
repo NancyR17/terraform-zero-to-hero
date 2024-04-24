@@ -1,8 +1,15 @@
+# Configure the AWS Provider
 provider "aws" {
-    region = "us-east-1"  # Set your desired AWS region
+  region = "us-east-1"
 }
 
-resource "aws_instance" "example" {
-    ami           = "ami-0c55b159cbfafe1f0"  # Specify an appropriate AMI ID
-    instance_type = "t2.micro"
+# Specify the AMI ID
+resource "aws_instance" "naina-terra" {
+  ami           = "ami-080e1f13689e07408"
+  instance_type = "t2.micro"
+  subnet_id     = "subnet-0fc924225e1ced7f8"
+  key_name      = "terra-keypair"
+  tags = {
+    Name = "naina-terra"
+  }
 }
